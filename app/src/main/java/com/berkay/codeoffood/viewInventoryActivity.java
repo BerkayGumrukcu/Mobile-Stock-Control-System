@@ -93,11 +93,9 @@ public class viewInventoryActivity extends AppCompatActivity {
     protected  void  onStart() {
         super.onStart();
 
-        FirebaseRecyclerOptions<Items> options =
-                new FirebaseRecyclerOptions.Builder<Items>()
-                        .setQuery(mdatabaseReference, Items.class)
-                        .build();
-        FirebaseRecyclerAdapter<Items, scanItemsActivity.UsersViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Items, UsersViewHolder>(options) {
+        FirebaseRecyclerAdapter<Items, scanItemsActivity.UsersViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Items, scanItemsActivity.UsersViewHolder>(
+                new FirebaseRecyclerOptions.Builder<Items>().setQuery(mdatabaseReference, Items.class).build()
+        ) {
             @Override
             protected void onBindViewHolder(@NonNull scanItemsActivity.UsersViewHolder holder, int position, @NonNull Items model) {
                 holder.setDetails(getApplicationContext(), model.getItembarcode(), model.getItemcategory(), model.getItemname(), model.getItemprice());
@@ -106,13 +104,13 @@ public class viewInventoryActivity extends AppCompatActivity {
             @NonNull
             @Override
             public scanItemsActivity.UsersViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-
-                ListLayoutBinding binding = ListLayoutBinding.inflate(inflater, parent, false);
-                return new scanItemsActivity.UsersViewHolder(binding);
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_layout, parent, false);
+                return new scanItemsActivity.UsersViewHolder(view);
             }
         };
+
         mrecyclerview.setAdapter(firebaseRecyclerAdapter);
+        firebaseRecyclerAdapter.startListening();
     }
 
     @Override
