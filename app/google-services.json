@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "447207138330",
+    "project_id": "codeoffood-25da0",
+    "storage_bucket": "codeoffood-25da0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:447207138330:android:1f4d1238347e8e2797dda3",
+        "android_client_info": {
+          "package_name": "com.berkay.codeoffood"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNYk_Vudmq5ZWbT8GvmSqfvou8io_e3yQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
